@@ -1,7 +1,7 @@
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { watchListReducer } from "@/features/watchListSlice";
-import { pricesReducer } from "@/features/pricesSlice";
 import { configureStore } from "@reduxjs/toolkit";
+import { pricesReducer } from "@/features/pricesSlice";
 import pricesMiddleware from "@/middleware/pricesMiddleware";
 
 export const makeStore = () => {
