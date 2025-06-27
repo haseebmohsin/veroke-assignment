@@ -22,6 +22,7 @@ const pricesMiddleware: Middleware = (store) => (next) => (action) => {
             const resp = await fetch(
               `/api/quote?symbol=${encodeURIComponent(item["1. symbol"])}`
             );
+
             if (!resp.ok) throw new Error(`Status ${resp.status}`);
             return (await resp.json()) as PriceQuote;
           } catch {
