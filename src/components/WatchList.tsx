@@ -15,9 +15,6 @@ export default function WatchList() {
     );
   }
 
-  console.log("WatchList items:", watchList);
-  console.log("Prices by symbol:", prices);
-
   return (
     <div className="space-y-6">
       {watchList.map((item) => {

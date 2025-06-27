@@ -69,7 +69,6 @@ export default function SearchBar() {
   const onAdd = (item: SymbolMatch) => {
     dispatch(add(item));
     setQuery("");
-    // leave dropdown open for further additions
   };
 
   return (
