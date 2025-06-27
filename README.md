@@ -1,16 +1,28 @@
-### What trade-offs did you make and why?
+# 📈 Stock Tracker App
 
-- **Used polling (every 10s)** instead of WebSockets — it's simpler, free-tier‑friendly, and easy to build.
+A lightweight Next.js 15 app to search stocks, manage a watchList, view live prices, and see historical charts.
 
-### 🕒 What would you do with more time?
+---
 
-- Swap in **WebSockets or server‑sent events** for real‑time updates — faster and more efficient than polling.
-- Build **full authentication and persistence** (OAuth + database) so users can save and sync their watchLists.
-- Add **advanced charting** (zoom, ranges, technical indicators), tooltips, and news feeds for a feature‑packed experience.
+## 🚀 Features
 
-### 🌍 How would you scale this for real users?
+- 🔍 Search stocks by name or ticker
+- ⭐ Add/remove items in your personal watchList
+- ⏱ Live price updates (polling)
+- 📊 Historical price charts using Alpha Vantage
 
-- **Cache APIs** and proxy requests via backend to hide API keys and control rate limits.
-- Use **bulk quote endpoints** instead of one‑off requests per ticker to stay efficient.
-- Swap to a high‑availability data source (Alpha Vantage Premium) for stable & fast real‑time data.
-- Support **infinite pagination** and card virtualization for large watchLists.
+---
+
+## 🔧 Setup
+
+1. Clone the repo:
+   ```bash
+   git clone <repo-url> && cd veroke-assignment
+   ```
+2. Install dependencies:
+   npm install
+3. Create .env
+   NEXT_PUBLIC_ALPHA_VANTAGE_KEY=YOUR_API_KEY
+4. Run in dev mode:
+   npm run dev
+5. Open your browser at http://localhost:3000
