@@ -40,7 +40,7 @@ const pricesMiddleware: Middleware = (store) => (next) => (action) => {
     };
 
     poll();
-    timer = setInterval(poll, 30_000);
+    timer = setInterval(poll, 5_000);
   }
 
   return result;

@@ -9,7 +9,7 @@ import { add, WatchListItem } from "@/features/watchListSlice";
 export default function SearchBar() {
   const dispatch = useAppDispatch();
   const [term, setTerm] = useState("");
-  const debouncedTerm = useDebounce(term, 1000) || "";
+  const debouncedTerm = useDebounce(term, 400) || "";
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   const {
@@ -19,7 +19,7 @@ export default function SearchBar() {
   } = useQuery<WatchListItem[], Error>({
     queryKey: ["search", debouncedTerm],
     queryFn: () => getSearchedStocks(debouncedTerm),
-    enabled: debouncedTerm.trim().length > 0,
+    enabled: debouncedTerm?.length > 0,
     placeholderData: [],
   });
 
@@ -42,11 +42,10 @@ export default function SearchBar() {
         </button>
       </div>
 
-      {error && <div className="mt-2 text-red-500">Error: {error.message}</div>}
-
       {debouncedTerm && (
         <ul className="absolute z-10 left-0 right-0 bg-white border rounded mt-1 max-h-60 overflow-auto shadow-lg">
           {isFetching && <li className="px-3 py-2">Loading...</li>}
+
           {results?.map?.((item) => (
             <li
               key={item["1. symbol"]}
@@ -68,6 +67,8 @@ export default function SearchBar() {
           )}
         </ul>
       )}
+
+      {error && <div className="mt-2 text-red-500">Error: {error.message}</div>}
     </div>
   );
 }
