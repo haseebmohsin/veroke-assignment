@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-export interface SymbolMatch {
+export interface WatchListItem {
   "1. symbol": string;
   "2. name": string;
   "3. type": string;
@@ -14,9 +14,9 @@ export interface SymbolMatch {
 
 const slice = createSlice({
   name: "watchList",
-  initialState: [] as SymbolMatch[],
+  initialState: [] as WatchListItem[],
   reducers: {
-    add: (state, action: PayloadAction<SymbolMatch>) => {
+    add: (state, action: PayloadAction<WatchListItem>) => {
       if (
         !state.find((item) => item["1. symbol"] === action.payload["1. symbol"])
       ) {
@@ -30,4 +30,3 @@ const slice = createSlice({
 
 export const { add, remove } = slice.actions;
 export const { reducer: watchListReducer } = slice;
-export type WatchListItem = SymbolMatch;

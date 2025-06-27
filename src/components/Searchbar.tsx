@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import type { SymbolMatch } from "@/features/watchListSlice";
+import type { WatchListItem } from "@/features/watchListSlice";
 import { add } from "@/features/watchListSlice";
 import { useAppDispatch } from "@/lib/store";
 import { searchSymbols } from "@/lib/api";
@@ -8,7 +8,7 @@ import { searchSymbols } from "@/lib/api";
 export default function SearchBar() {
   const dispatch = useAppDispatch();
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState<SymbolMatch[]>([]);
+  const [results, setResults] = useState<WatchListItem[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [apiError, setApiError] = useState<string | null>(null);
@@ -66,7 +66,7 @@ export default function SearchBar() {
     }
   };
 
-  const onAdd = (item: SymbolMatch) => {
+  const onAdd = (item: WatchListItem) => {
     dispatch(add(item));
     setQuery("");
   };
