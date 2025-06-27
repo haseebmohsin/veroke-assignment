@@ -6,6 +6,10 @@ export async function getSearchedStocks(
   const res = await fetch(`/api/search?keywords=${encodeURIComponent(term)}`);
   const json = await res.json();
 
-  if (!res.ok) throw new Error(json.error || "API error");
+  if (!res.ok) {
+    const msg = json.error || `Unexpected error (${res.status})`;
+    throw new Error(msg);
+  }
+
   return Array.isArray(json.bestMatches) ? json.bestMatches : [];
 }
