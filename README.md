@@ -21,8 +21,9 @@ A lightweight Next.js 15 app to search stocks, manage a watchList, view live pri
    ```
 2. Install dependencies:
    npm install
-3. Create .env
-   NEXT_PUBLIC_ALPHA_VANTAGE_KEY=YOUR_API_KEY
+3. Create .env and add the below key values
+   NEXT_PUBLIC_BASE_API_URL="https://www.alphavantage.co/query"
+   ALPHA_VANTAGE_KEY=YOUR_API_KEY
 4. Run in dev mode:
    npm run dev
 5. Open your browser at http://localhost:3000

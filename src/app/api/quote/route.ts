@@ -10,7 +10,7 @@ export async function GET(req: NextRequest) {
       params: {
         function: "GLOBAL_QUOTE",
         symbol,
-        apikey: process.env.NEXT_PUBLIC_ALPHA_VANTAGE_KEY,
+        apikey: process.env.ALPHA_VANTAGE_KEY,
       },
     });
 

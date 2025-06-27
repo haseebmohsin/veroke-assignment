@@ -12,7 +12,7 @@ export async function GET(req: NextRequest) {
       params: {
         function: "SYMBOL_SEARCH",
         keywords,
-        apikey: process.env.NEXT_PUBLIC_ALPHA_VANTAGE_KEY,
+        apikey: process.env.ALPHA_VANTAGE_KEY,
       },
     });
 
