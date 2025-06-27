@@ -26,6 +26,8 @@ export async function GET(req: NextRequest) {
       err.response?.data?.Note ||
       err.response?.data?.ErrorMessage ||
       "External API error";
+
+    console.error("Search error:", err);
     return new Response(JSON.stringify({ error: msg }), { status: 500 });
   }
 }
